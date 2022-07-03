@@ -9,17 +9,9 @@ const MainBody = () => {
   const [turn, setTurn] = useState(0);
   const [data, setData] = useState(["", "", "", "", "", "", "", "", ""]);
   const [reset, setReset] = useState(false);
-  const boardRef = useRef(null);
-
-  useEffect(() => {
-    setData(["", "", "", "", "", "", "", "", ""]);
-    // const cells = boardRef.current.children;
-    // for (let i = 0; i < 9; i++) {
-    //     cells[i].innerText = '';
-    // }
-    setTurn(0);
-    setReset(false);
-  }, []);
+  const boardRef1 = useRef(null);
+  const boardRef2 = useRef(null);
+  const boardRef3 = useRef(null);
 
   // Function to draw X/0 on the board
   const drawTurn = (event, index) => {
@@ -32,12 +24,26 @@ const MainBody = () => {
   };
 
   const resetBoard = () => {
+    setData(["", "", "", "", "", "", "", "", ""]);
+    const cellRow1 = boardRef1.current.children;
+    for(let i=0; i<3; i++){
+      cellRow1[i].innerText = '';
+    }
+    const cellRow2 = boardRef2.current.children;
+    for(let i=0; i<3; i++){
+      cellRow2[i].innerText = '';
+    }
+    const cellRow3 = boardRef3.current.children;
+    for(let i=0; i<3; i++){
+      cellRow3[i].innerText = '';
+    }
+    setTurn(0);
+    setWinner("");
     setReset(true);
   };
 
   // useEffect hook used to check for a winner
   useEffect(() => {
-    // Checks for the win condition in rows
     const checkRow = () => {
       let ans = false;
       for (let i = 0; i < 9; i += 3) {
@@ -46,7 +52,6 @@ const MainBody = () => {
       }
       return ans;
     };
-    // Checks for the win condition in cols
     const checkCol = () => {
       let ans = false;
       for (let i = 0; i < 3; i++) {
@@ -55,18 +60,15 @@ const MainBody = () => {
       }
       return ans;
     };
-    // Checks for the win condition in diagonals
     const checkDiagonal = () => {
       return (
         (data[0] === data[4] && data[0] === data[8] && data[0] !== "") ||
         (data[2] === data[4] && data[2] === data[6] && data[2] !== "")
       );
     };
-    // Checks if at all a win condition is present
     const checkWin = () => {
       return checkRow() || checkCol() || checkDiagonal();
     };
-    // Checks for a tie
     const checkDraw = () => {
       let count = 0;
       data.forEach((cell) => {
@@ -76,7 +78,7 @@ const MainBody = () => {
       });
       return count === 9;
     };
-    // Setting the winner in case of a win
+    // Setting the winner
     if (checkWin()) {
       setWinner(turn === 0 ? "Player 2 win" : "Player 1 win");
     } else if (checkDraw()) {
@@ -86,10 +88,9 @@ const MainBody = () => {
 
   return (
     <div className="mainBody">
-      <div reset={reset} setReset={setReset} winner={winner} 
-                setWinner={setWinner} className="gameBoard">
-        <div ref={boardRef} className="tableData">
-          <div className="rowData">
+      <div className="gameBoard">
+        <div className="tableData">
+          <div ref={boardRef1} className="rowData">
             <div
               className="cellData cell1"
               onClick={(e) => drawTurn(e, 1)}
@@ -103,7 +104,7 @@ const MainBody = () => {
               onClick={(e) => drawTurn(e, 3)}
             ></div>
           </div>
-          <div className="rowData">
+          <div ref={boardRef2} className="rowData">
             <div
               className="cellData cell4"
               onClick={(e) => drawTurn(e, 4)}
@@ -117,7 +118,7 @@ const MainBody = () => {
               onClick={(e) => drawTurn(e, 6)}
             ></div>
           </div>
-          <div className="rowData">
+          <div ref={boardRef3} className="rowData">
             <div
               className="cellData cell7"
               onClick={(e) => drawTurn(e, 7)}

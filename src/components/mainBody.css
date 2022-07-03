@@ -80,6 +80,27 @@ body{
     font-size: 2rem;
     margin: 1rem auto;
 }
+.winner {
+    transition: all ease-in .5s;
+    display: flex;
+    opacity: 1;
+    font-size: 1.5rem;
+    font-weight: 600;
+    gap: 1vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    background-color: rgb(63, 165, 224);
+    backdrop-filter: 5px;
+    padding: .5rem;
+    padding-bottom: 1rem;
+    border-radius: 10%;
+}
 .winner-text{
     padding: .3em 1em .25em;    
     font-weight: 600;
@@ -95,8 +116,6 @@ body{
     opacity: 0;
 }
 .allInfo{
-    /* display: flex;
-    flex-direction: row-reverse; */
     width: 40%;
     margin: 1rem 12rem;
 }
@@ -105,13 +124,7 @@ body{
     height: auto;
 }
 button{
-    /* width: 8rem; */
-    /* height: 3rem; */
-    /* font-size: 2rem; */
     background-color: red;
-    /* cursor: pointer; */
-    /* border-radius: 0.5rem; */
-    /* background-color: #111827; */
     border: 1px solid transparent;
     border-radius: .75rem;
     box-sizing: border-box;
@@ -127,13 +140,12 @@ button{
     text-decoration: none #6B7280 solid;
     text-decoration-thickness: auto;
     transition-duration: .2s;
-    transition-property: background-color, border-color, 
-      color, fill, stroke;
+    transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: auto;
+    width: 40%;
 }
 button:hover {
     background-color: #08f314;
@@ -150,4 +162,48 @@ button:focus {
 }
 .player{
     font-size: 1.5rem;
+}
+@media only screen and (max-width: 414px){
+    .appHeader{
+        width: 100vw;
+        font-size: calc(20px + 3vmin);
+        overflow-x: hidden;
+    }
+    .mainBody{
+        width: 100vw;
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+    .gameBoard{
+        width: 90%;
+    }
+    .tableData{
+        width: 100%;
+        margin: 0 3rem;
+    }
+    .rowData{
+        width: 90%;
+    }
+    .gameData{
+        width: 100%;
+    }
+    .headValue{
+        font-size: 1.5rem;
+    }
+    .allInfo{
+        width: 100%;
+    }
+    .info{
+        width: 100%;
+    }
+    .headValue{
+        width: 100%;
+    }
+    .player{
+        width: 100%;
+        margin: 0 -12rem;
+    }
+    .winner{
+        width: 80%;
+    }
 }

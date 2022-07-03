@@ -2,13 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import "./mainBody.css";
 
 const MainBody = () => {
-  const music = new Audio("music.mp3");
-  const turnMusic = new Audio("tik.mp3");
-  const gameOverMusic = new Audio("gameOver.mp3");
+  // const music = new Audio("music.mp3");
+  // const turnMusic = new Audio("tik.mp3");
+  // const gameOverMusic = new Audio("gameOver.mp3");
   const [winner, setWinner] = useState("");
   const [turn, setTurn] = useState(0);
   const [data, setData] = useState(["", "", "", "", "", "", "", "", ""]);
-  const [gameOver, setGameOver] = useState(false);
   const [reset, setReset] = useState(false);
   const boardRef = useRef(null);
 
@@ -20,7 +19,7 @@ const MainBody = () => {
     // }
     setTurn(0);
     setReset(false);
-  }, [reset, setReset, setWinner]);
+  }, []);
 
   // Function to draw X/0 on the board
   const drawTurn = (event, index) => {
@@ -33,7 +32,6 @@ const MainBody = () => {
   };
 
   const resetBoard = () => {
-    // setData(["", "", "", "", "", "", "", "", ""]);
     setReset(true);
   };
 
@@ -72,7 +70,7 @@ const MainBody = () => {
     const checkDraw = () => {
       let count = 0;
       data.forEach((cell) => {
-        if (cell != "") {
+        if (cell !== "") {
           count++;
         }
       });
@@ -88,8 +86,9 @@ const MainBody = () => {
 
   return (
     <div className="mainBody">
-      <div className="gameBoard">
-        <div className="tableData">
+      <div reset={reset} setReset={setReset} winner={winner} 
+                setWinner={setWinner} className="gameBoard">
+        <div ref={boardRef} className="tableData">
           <div className="rowData">
             <div
               className="cellData cell1"
@@ -142,7 +141,7 @@ const MainBody = () => {
           </div>
           <div className={`winner ${winner !== "" ? "" : "shrink"}`}>
             <div className="winner-text">{winner}</div>
-            <button onClick={() => resetBoard()}>Reset </button>
+            <button onClick={() => resetBoard()}>Reset</button>
           </div>
         </div>
       </div>

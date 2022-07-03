@@ -1,0 +1,153 @@
+/*Header css*/
+.appHeader{
+  background-color: #282c34;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+  margin-top: 0;
+  padding-top: 1rem;
+}
+
+/* Main body css*/
+body{
+    background-color: #282c347c;
+}
+.mainBody{
+    display: flex;
+    height: 100%;
+}
+.gameBoard{
+    width: 40%;
+    height: 90%;
+    margin: 1rem;
+    background-color: rgba(86, 92, 92, 0.445);
+    border-radius: 1rem;
+}
+.tableData{
+    margin: 2rem 6rem;
+}
+.rowData{
+    display: flex;
+}
+.cellData{
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid black;
+    font-size: 4.5rem;
+    color: snow;
+    cursor: pointer;
+}
+.cellData:hover{
+    background-color: #6b6e75;
+    color: rgb(29, 149, 218);
+}
+.cell1{
+    border-top: 0;
+    border-left: 0;
+}
+.cell2{
+    border-top: 0;
+}
+.cell3{
+    border-top: 0;
+    border-right: 0;
+}
+.cell4{
+    border-left: 0;
+}
+.cell6{
+    border-right: 0;
+}
+.cell7{
+    border-left: 0;
+    border-bottom: 0;
+}
+.cell8{
+    border-bottom: 0;
+}
+.cell9{
+    border-bottom: 0;
+    border-right: 0;
+}
+.gameData{
+    width: 60%;
+    height: auto;
+}
+.headValue{
+    color: #0c0c0c;
+    font-size: 2rem;
+    margin: 1rem auto;
+}
+.winner-text{
+    padding: .3em 1em .25em;    
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: white;
+    font-family: 'Bellefair', serif;
+    position:relative;
+    text-align: center;
+    line-height:1.3;
+}
+.shrink {
+    transform: scale(.1);
+    opacity: 0;
+}
+.allInfo{
+    /* display: flex;
+    flex-direction: row-reverse; */
+    width: 40%;
+    margin: 1rem 12rem;
+}
+.myBtn{
+    width: 50%;
+    height: auto;
+}
+button{
+    /* width: 8rem; */
+    /* height: 3rem; */
+    /* font-size: 2rem; */
+    background-color: red;
+    /* cursor: pointer; */
+    /* border-radius: 0.5rem; */
+    /* background-color: #111827; */
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-family: "Inter var";
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color, border-color, 
+      color, fill, stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+}
+button:hover {
+    background-color: #08f314;
+}
+  
+button:focus {
+    box-shadow: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.info{
+    width: 100%;
+    height: auto;
+}
+.player{
+    font-size: 1.5rem;
+}

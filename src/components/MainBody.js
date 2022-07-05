@@ -3,7 +3,7 @@ import "./mainBody.css";
 
 const MainBody = () => {
   // const music = new Audio("music.mp3");
-  // const turnMusic = new Audio("tik.mp3");
+  const turnMusic = new Audio("tik.mp3");
   // const gameOverMusic = new Audio("gameOver.mp3");
   const [winner, setWinner] = useState("");
   const [turn, setTurn] = useState(0);
@@ -21,6 +21,7 @@ const MainBody = () => {
       event.target.innerText = current;
       setTurn(turn === 0 ? 1 : 0);
     }
+    turnMusic.play();
   };
 
   const resetBoard = () => {
